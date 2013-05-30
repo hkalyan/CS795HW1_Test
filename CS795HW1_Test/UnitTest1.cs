@@ -1,7 +1,7 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace CS795HW1_Test
+namespace WpfApplication1
 {
     [TestClass]
     public class UnitTest1

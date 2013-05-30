@@ -63,7 +63,7 @@
             </TextBlock>
             <TextBox Name="txtUserEntry2" Background="Transparent" Grid.RowSpan="2" />
         </Grid>
-        <Button Content="Login" Height="22" Name="login_btn" Margin="115,211,114.667,88.333" />
+        <Button Content="Login" Height="22" Name="login_btn" Margin="115,211,114.667,88.333" Click="login_btn_Click" />
         <TextBlock x:Name="Header" HorizontalAlignment="Center" Margin="162,77,157.667,0" Text="Secure Distributed System" VerticalAlignment="Top" FontSize="16" FontWeight="Bold" TextDecorations="{x:Null}" Width="199" IsEnabled="False"/>
         <TextBlock x:Name="FullName" HorizontalAlignment="Left" Margin="192,103,0,0" TextWrapping="Wrap" Text="Hari Phaneendra Kalyan D" VerticalAlignment="Top" Width="161" Foreground="White"/>
         <TextBlock x:Name="UIN" HorizontalAlignment="Left" Margin="192,123,0,0" TextWrapping="Wrap" Text="00901369" VerticalAlignment="Top" Foreground="White"/>

@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
 
-namespace CS795HW1_Test
+namespace WpfApplication1
 {
     public class DsecApp
     {

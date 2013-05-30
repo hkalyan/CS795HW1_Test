@@ -6,7 +6,7 @@
     <ProjectGuid>{5C7FBC89-E9DC-4636-B546-6CABDC818BBE}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>CS795HW1_Test</RootNamespace>
+    <RootNamespace>WpfApplication1</RootNamespace>
     <AssemblyName>CS795HW1_Test</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>

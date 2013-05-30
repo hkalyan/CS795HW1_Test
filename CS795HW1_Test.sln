@@ -4,6 +4,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CS795HW1_Test", "CS795HW1_Test\CS795HW1_Test.csproj", "{5C7FBC89-E9DC-4636-B546-6CABDC818BBE}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CS795HW1_UI", "WpfApplication1\CS795HW1_UI.csproj", "{B12BC4E0-539C-49EF-973D-145230140DB8}"
+	ProjectSection(ProjectDependencies) = postProject
+		{5C7FBC89-E9DC-4636-B546-6CABDC818BBE} = {5C7FBC89-E9DC-4636-B546-6CABDC818BBE}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
