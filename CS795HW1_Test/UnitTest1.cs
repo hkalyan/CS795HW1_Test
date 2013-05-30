@@ -65,5 +65,11 @@ namespace CS795HW1_Test
             Assert.IsFalse(Create_DSecApp_Instance().Check_Key(" "));
         }
 
+        [TestMethod]
+        public void Returns_False_For_NotNumbers()
+        {
+            Assert.IsFalse(Create_DSecApp_Instance().Check_Key("ab$d"));
+        }
+
     }
 }

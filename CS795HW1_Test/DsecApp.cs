@@ -63,10 +63,12 @@ namespace CS795HW1_Test
             bool special_character_notpresent = objAlphaPattern.IsMatch(uname);
             return special_character_notpresent;
         }
-
+      
 
         internal bool Check_Key(String role_key)
         {
+            if (!Checkfor_Numbers(role_key))
+                return false;
             if (role_key.Trim().Length == 0)
                 return false;
             if (roles.ContainsKey(Int32.Parse(role_key)))
@@ -74,6 +76,13 @@ namespace CS795HW1_Test
             else
                 return false;
         }
+        private static bool Checkfor_Numbers(String key)
+        {
+            Regex numberPattern = new Regex("^[0-9]*$"); ;
+            bool only_numbers_present = numberPattern.IsMatch(key);
+            return only_numbers_present;
+        }
+
     }
  
 
