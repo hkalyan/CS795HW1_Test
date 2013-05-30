@@ -12,9 +12,21 @@ namespace CS795HW1_Test
             return dapp;
         }
         [TestMethod]
-        public void Returns_True_For_Login_Hari()
+        public void Returns_True_For_Login_hkalyan()
         {
-            Assert.IsTrue(Create_DSecApp_Instance().Check_Username("Hari"));
+            Assert.IsTrue(Create_DSecApp_Instance().Check_Username("hkalyan"));
+        }
+
+        [TestMethod]
+        public void Returns_True_For_Login_mukka()
+        {
+            Assert.IsTrue(Create_DSecApp_Instance().Check_Username("mukka"));
+        }
+
+        [TestMethod]
+        public void Returns_False_For_Login_test()
+        {
+            Assert.IsFalse(Create_DSecApp_Instance().Check_Username("test"));
         }
 
         [TestMethod]
@@ -33,6 +45,24 @@ namespace CS795HW1_Test
         public void Returns_True_For_Key12()
         {
             Assert.IsTrue(Create_DSecApp_Instance().Check_Key("12"));
+        }
+
+        [TestMethod]
+        public void Returns_True_For_Key13()
+        {
+            Assert.IsTrue(Create_DSecApp_Instance().Check_Key("13"));
+        }
+
+        [TestMethod]
+        public void Returns_False_For_Key200()
+        {
+            Assert.IsFalse(Create_DSecApp_Instance().Check_Key("200"));
+        }
+
+        [TestMethod]
+        public void Returns_False_For_BlankKey()
+        {
+            Assert.IsFalse(Create_DSecApp_Instance().Check_Key(" "));
         }
 
     }
