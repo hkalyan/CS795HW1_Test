@@ -10,30 +10,19 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace WpfApplication1
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for CompanyInformation.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class CompanyInformation : Window
     {
-        public MainWindow()
+        public CompanyInformation()
         {
             InitializeComponent();
-        }
-
-        private void login_btn_Click(object sender, RoutedEventArgs e)
-        {
-            /*
-             * Validate the input here
-             */
-            //DsecApp dapp = new DsecApp();
-            this.Hide();
-            new CompanyInformation().Show();
-            //this.Hide();
+          //  Company_Image.Source = new BitmapImage(new Uri(@"\myserver\folder1\Customer Data\sample.png"));
         }
     }
 }

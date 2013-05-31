@@ -1,0 +1,22 @@
+﻿<Window x:Class="WpfApplication1.CompanyInformation"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="CompanyInformation" Height="300" Width="300">
+    <Window.Resources>
+    <BitmapImage x:Key="MyImageSource" UriSource="/Images/Company_image.jpg" />
+    </Window.Resources>
+    <Grid>
+        <Image x:Name="Company_Image" HorizontalAlignment="Left" Height="100" Margin="57,31,0,0" VerticalAlignment="Top" Width="100" RenderTransformOrigin="0.5,0.5" Source="Company_image.jpg" >
+            <Image.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="0.351"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Image.RenderTransform>
+           
+        </Image>
+        <Canvas HorizontalAlignment="Left" Height="100" Margin="57,31,0,0" VerticalAlignment="Top" Width="100"/>
+    </Grid>
+</Window>
