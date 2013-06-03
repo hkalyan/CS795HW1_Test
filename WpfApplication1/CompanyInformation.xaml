@@ -1,22 +1,67 @@
 ﻿<Window x:Class="WpfApplication1.CompanyInformation"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="CompanyInformation" Height="300" Width="300">
-    <Window.Resources>
-    <BitmapImage x:Key="MyImageSource" UriSource="/Images/Company_image.jpg" />
-    </Window.Resources>
+        Title="CompanyInformation" Height="462.191" Width="664.664">
     <Grid>
-        <Image x:Name="Company_Image" HorizontalAlignment="Left" Height="100" Margin="57,31,0,0" VerticalAlignment="Top" Width="100" RenderTransformOrigin="0.5,0.5" Source="Company_image.jpg" >
-            <Image.RenderTransform>
-                <TransformGroup>
-                    <ScaleTransform/>
-                    <SkewTransform/>
-                    <RotateTransform Angle="0.351"/>
-                    <TranslateTransform/>
-                </TransformGroup>
-            </Image.RenderTransform>
-           
-        </Image>
-        <Canvas HorizontalAlignment="Left" Height="100" Margin="57,31,0,0" VerticalAlignment="Top" Width="100"/>
-    </Grid>
+        <Grid.Background>
+            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                <GradientStop Color="#FF1098AE" Offset="0"/>
+                <GradientStop Color="#FF108699" Offset="1"/>
+                <GradientStop Color="#FF58B7C6" Offset="0.411"/>
+                <GradientStop Color="#FF4AB1C1" Offset="0.334"/>
+            </LinearGradientBrush>
+        </Grid.Background>
+        <Grid Grid.Row="0" >
+            <Image x:Name="Company_Image" HorizontalAlignment="Left" Height="104" Margin="5,3,0,0" VerticalAlignment="Top" Width="153" RenderTransformOrigin="0.5,0.5" Source="Company_image.jpg" >
+                <Image.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="0.351"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Image.RenderTransform>
+
+            </Image>
+            <TextBlock x:Name="Welcome_Text" HorizontalAlignment="Left" Margin="197,10,0,0" TextWrapping="Wrap" Text="Welcome User. Please select below options to continue." VerticalAlignment="Top" FontFamily="Franklin Gothic Book" FontSize="18" Width="302" FontWeight="Bold"/>
+            <DataGrid HorizontalAlignment="Left" Margin="544,303,0,0" VerticalAlignment="Top" Height="100" Width="103"/>
+            <GroupBox Header="Selecting the above options will load this table" HorizontalAlignment="Left" Margin="10,288,0,0" VerticalAlignment="Top" Height="134" Width="449">
+                <DataGrid x:Name="Results_level1" HorizontalAlignment="Left" VerticalAlignment="Top" Height="103" Width="417" Margin="10,10,0,-16" SelectionChanged="Results_level1_SelectionChanged"/>
+            </GroupBox>
+            <Button x:Name="Logout_Btn" Content="Logout" HorizontalAlignment="Left" Margin="572,11,0,0" VerticalAlignment="Top" Width="75" Click="Logout_Btn_Click"/>
+        </Grid>
+        
+            <ListView x:Name="Options_List" HorizontalAlignment="Left" Height="166" Margin="10,111,0,0" VerticalAlignment="Top" Width="637" SelectionChanged="Options_List_SelectionChanged">
+            <ListView.ItemContainerStyle>
+                <Style TargetType="{x:Type ListViewItem}">
+                  <Setter Property="FontSize" Value="16" />
+                  <Setter Property="FontWeight" Value="Bold"/>
+                </Style>
+            </ListView.ItemContainerStyle>
+            <ListView.View>
+                    <GridView>
+                        <GridViewColumn/>
+                    </GridView>
+                </ListView.View>
+                <ListViewItem x:Name="Books_Item" Content="Books" Margin="0" Selected="Books_Item_Selected" FontWeight="Bold" FontSize="16" >
+                </ListViewItem>
+               
+                <ListViewItem x:Name="Contacts_Item" Content="Contact Us" Margin="0" FontWeight="Bold" FontSize="16">
+                </ListViewItem>
+                <ListViewItem Margin="0">
+                <Grid >
+                    <Grid Grid.Row="0">
+                        <Grid Grid.Column="0">
+                    <Label Content="Calendar"  Margin="0" FontSize="16" FontWeight="Bold"/>
+                        </Grid>
+                        <Grid Grid.Column="1">
+                        <DatePicker Text="Calendar" Margin="439,1,-439,-1"/>
+                        </Grid>
+                    </Grid>
+                </Grid>
+            </ListViewItem>
+            <ListViewItem x:Name="Users" Margin="0"/>
+        </ListView>
+            
+        </Grid>
 </Window>

@@ -31,8 +31,10 @@ namespace WpfApplication1
              * Validate the input here
              */
             //DsecApp dapp = new DsecApp();
+
+          
             this.Hide();
-            new CompanyInformation().Show();
+            new CompanyInformation(Int32.Parse(txtUserEntry2.Text)).Show();
             //this.Hide();
         }
     }
