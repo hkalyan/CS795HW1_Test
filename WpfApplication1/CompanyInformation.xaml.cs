@@ -81,7 +81,27 @@ namespace WpfApplication1
                 Results_level1.Items.Clear();
                 SetContactsData();
             }
+            else if (selected_item.Equals("Sellers"))
+            {
+                Results_level1.Columns.Clear();
+                Results_level1.Items.Clear();
+                SetSellerData();
+            }
             
+        }
+
+        private void SetSellerData()
+        {
+            DataGridTextColumn name = new DataGridTextColumn();
+            name.Header = "Name";
+            name.Binding = new Binding("Name");
+            DataGridTextColumn email = new DataGridTextColumn();
+            email.Header = "Email";
+            email.Binding = new Binding("Email");
+            Results_level1.Columns.Add(name);
+            Results_level1.Columns.Add(email);
+            Results_level1.Items.Add(new Contacts() { Name = "John Doe", Email = "jdoe@cs.odu.edu" });
+            Results_level1.Items.Add(new Contacts() { Name = "Bill Gates", Email = "bgates@cs.odu.edu" });
         }
 
         private void SetContactsData()
@@ -144,6 +164,53 @@ namespace WpfApplication1
 
         private void Results_level1_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            //string selected_item = "";
+            DataGrid dg = sender as DataGrid;
+            Contacts row = (Contacts)dg.SelectedItem;
+            try
+            {
+                Console.WriteLine(row.Name);
+                string selected_item = row.Name;
+                /*
+                foreach (DataGridRow item in Results_level1.SelectedItems)
+                {
+                    selected_item = (item.Name).ToString();
+                }
+                */
+                if (selected_item.Equals("John Doe"))
+                {
+                   // Results_level1.Columns.Clear();
+                    //Results_level1.Items.Clear();
+                    setSellerBooks("John Doe");
+                }
+                else
+                {
+                   // Results_level1.Columns.Clear();
+                   // Results_level1.Items.Clear();
+                    setSellerBooks("Bill Gates");
+                }
+            }
+            catch (Exception except)
+            {
+            }
+             
+        }
+
+        private void setSellerBooks(string Seller_Name)
+        {
+            DataGridTextColumn name = new DataGridTextColumn();
+            name.Header = "Name";
+            name.Binding = new Binding("Name");
+            DataGridTextColumn price = new DataGridTextColumn();
+            price.Header = "Price";
+            price.Binding = new Binding("Price");
+            DataGridTextColumn calendar_book = new DataGridTextColumn();
+            calendar_book.Binding = new Binding("Current_date");
+            calendar_book.Header = "Date";
+            Results_level2.Columns.Add(name);
+            Results_level2.Columns.Add(price);
+            Results_level2.Columns.Add(calendar_book);
+            Results_level2.Items.Add(new Used_Books_Buyer_Books(){Name ="Introduction to Algorithms", Price = "30.00$", Current_date = (DateTime.Now).ToString()}); 
 
         }
         void EventSetter_OnHandler(object sender, RoutedEventArgs e)
@@ -151,6 +218,12 @@ namespace WpfApplication1
             var destination = ((Hyperlink)e.OriginalSource).NavigateUri;
             Process.Start(destination.ToString());
         }
+
+        private void Results_level2_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
+
 
         
     }
@@ -186,6 +259,18 @@ namespace WpfApplication1
         public string Name { get; set; }
         public string Price { get; set; }
         public DatePicker Current_date { get; set; }
+    }
+
+    public class Used_Books_Buyer
+    {
+        public string Name { get; set; }
+        public string Email { get; set; }
+    }
+    public class Used_Books_Buyer_Books
+    {
+        public string Name { get; set; }
+        public string Price { get; set; }
+        public string Current_date { get; set; }
     }
 
     public class Used_Books_Seller
