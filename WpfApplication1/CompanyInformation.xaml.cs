@@ -65,25 +65,75 @@ namespace WpfApplication1
             }
             if (selected_item.Equals("Books"))
             {
-                DataGridTextColumn name = new DataGridTextColumn();
-                name.Header = "Name";
-                name.Binding = new Binding("Name");
-                name.Width = 80;
-                DataGridTextColumn description = new DataGridTextColumn();
-                description.Header = "Description";
-                description.Binding = new Binding("Description");
-                var style = new Style();
-                style.Setters.Add(new EventSetter(Hyperlink.ClickEvent, (RoutedEventHandler)EventSetter_OnHandler));
-                DataGridHyperlinkColumn website = new DataGridHyperlinkColumn();
-                website.Header = "Website";
-                website.Binding = new Binding("Website");
-                website.ElementStyle = style;
-                Results_level1.Columns.Add(name);
-                Results_level1.Columns.Add(description);
-                Results_level1.Columns.Add(website);
-                Results_level1.Items.Add(new Books() { Name = "Book 1", Description = "Desc", Website = "www.google.com" });
+                Results_level1.Columns.Clear();
+                Results_level1.Items.Clear();
+                SetBooksData();
+            }
+            else if (selected_item.Equals("Users"))
+            {
+                Results_level1.Columns.Clear();
+                Results_level1.Items.Clear();
+                SetUsersData();
+            }
+            else if (selected_item.Equals("Contact Us"))
+            {
+                Results_level1.Columns.Clear();
+                Results_level1.Items.Clear();
+                SetContactsData();
             }
             
+        }
+
+        private void SetContactsData()
+        {
+            DataGridTextColumn name = new DataGridTextColumn();
+            name.Header = "Name";
+            name.Binding = new Binding("Name");
+            DataGridTextColumn email = new DataGridTextColumn();
+            email.Header = "Email";
+            email.Binding = new Binding("Email");
+            Results_level1.Columns.Add(name);
+            Results_level1.Columns.Add(email);
+            Results_level1.Items.Add(new Contacts() { Name = "Hari Phaneendra", Email = "hkalyan@cs.odu.edu" });
+            Results_level1.Items.Add(new Contacts() { Name = "Ravi Mukkamala", Email = "rmukka@cs.odu.edu" });
+        }
+
+        private void SetUsersData()
+        {
+            DataGridTextColumn name = new DataGridTextColumn();
+            name.Header = "Name";
+            name.Binding = new Binding("Name");
+            DataGridTextColumn role = new DataGridTextColumn();
+            role.Header = "Role";
+            role.Binding = new Binding("Role");
+            Results_level1.Columns.Add(name);
+            Results_level1.Columns.Add(role);
+            Results_level1.Items.Add(new Users() { Name = "hkalyan" , Role = "Browser"});
+            Results_level1.Items.Add(new Users() { Name = "mukka", Role = "Admin" });
+            Results_level1.Items.Add(new Users() { Name = "seller", Role = "Seller" });
+            Results_level1.Items.Add(new Users() { Name = "browser", Role = "Browser" });
+            Results_level1.Items.Add(new Users() { Name = "buyer", Role = "Buyer" });
+        }
+
+        private void SetBooksData()
+        {
+            DataGridTextColumn name = new DataGridTextColumn();
+            name.Header = "Name";
+            name.Binding = new Binding("Name");
+            DataGridTextColumn description = new DataGridTextColumn();
+            description.Header = "Description";
+            description.Binding = new Binding("Description");
+            var style = new Style();
+            style.Setters.Add(new EventSetter(Hyperlink.ClickEvent, (RoutedEventHandler)EventSetter_OnHandler));
+            DataGridHyperlinkColumn website = new DataGridHyperlinkColumn();
+            website.Header = "Website";
+            website.Binding = new Binding("Website");
+            website.ElementStyle = style;
+            Results_level1.Columns.Add(name);
+            Results_level1.Columns.Add(description);
+            Results_level1.Columns.Add(website);
+            Results_level1.Items.Add(new Books() { Name = "Python Programming: An Introduction to Computer Science 2nd Edition", Description = "This is the second edition of John Zelle's Python Programming, updated for Python 3. This book is designed to be used as the primary textbook in a college-level first course in computing. It takes a fairly traditional approach, emphasizing problem solving, design, and programming as the core skills of computer science. However, these ideas are illustrated using a non-traditional language, namely Python.", Website = "https://www.fbeedle.com/" });
+            Results_level1.Items.Add(new Books() { Name = "Computer Systems: A Programmer's Perspective", Description = "For Computer Organization and Architecture and Computer Systems courses in CS and EE and ECE departments. Developed out of an introductory course at Carnegie Mellon University, this text explains the important and enduring concepts underlying all computer systems, and shows the concrete ways that these ideas affect the correctness, performance, and utility of application programs. The text's concrete and hands-on approach will help students understand what is going on under the hood of a computer system.", Website = "http://prenticehall.com/" });
         }
 
         private void Logout_Btn_Click(object sender, RoutedEventArgs e)
